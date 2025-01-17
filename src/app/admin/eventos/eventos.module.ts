@@ -6,6 +6,8 @@ import { TransporteComponent } from './components/transporte/transporte.componen
 import { OtrosComponent } from './components/otros/otros.component';
 import { EventosComponent } from './components/eventos/eventos.component';
 import { EventosRoutingModule } from './eventos-routing.module';
+import { DropdownModule } from 'primeng/dropdown';
+import { FormsModule } from '@angular/forms';
 
 
 
@@ -19,7 +21,9 @@ import { EventosRoutingModule } from './eventos-routing.module';
   ],
   imports: [
     CommonModule,
-    EventosRoutingModule
+    EventosRoutingModule,
+    DropdownModule,
+    FormsModule
   ]
 })
 export class EventosModule { }

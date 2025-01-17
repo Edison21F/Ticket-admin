@@ -12,6 +12,8 @@ import { InputTextModule } from 'primeng/inputtext';
 import { ButtonModule } from 'primeng/button';
 import { RippleModule } from 'primeng/ripple';
 import { PasswordModule } from 'primeng/password';
+import { CheckboxModule } from 'primeng/checkbox';
+
 
 @NgModule({
   declarations: [
@@ -26,7 +28,8 @@ import { PasswordModule } from 'primeng/password';
     InputTextModule,
     ButtonModule,
     RippleModule,
-    PasswordModule
+    PasswordModule,
+    CheckboxModule
   ]
 })
 export class AuthModule { }

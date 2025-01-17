@@ -1,1 +1,49 @@
-<p>cine works!</p>
+<div class="card">
+    <div class="movie-container">
+        <label for="movie">Seleccione una película:</label>
+        <p-dropdown
+          id="movie"
+          [options]="movies"
+          [(ngModel)]="selectedMovie"
+          optionLabel="name"
+          placeholder="Seleccione una película"
+          (onChange)="onMovieChange($event)"
+        ></p-dropdown>
+      </div>
+      
+      <ul class="showcase">
+        <li>
+          <div class="seat"></div>
+          <small>Disponible</small>
+        </li>
+        <li>
+          <div class="seat selected"></div>
+          <small>Seleccionado</small>
+        </li>
+        <li>
+          <div class="seat sold"></div>
+          <small>Vendido</small>
+        </li>
+      </ul>
+      
+      <div class="container">
+        <div class="screen">Pantalla</div>
+      
+        <div *ngFor="let row of seats">
+          <div class="row">
+            <div
+              *ngFor="let seat of row"
+              class="seat"
+              [ngClass]="seat.status"
+              (click)="toggleSeat(seat)"
+            ></div>
+          </div>
+        </div>
+      </div>
+      
+      <p class="text">
+        Has seleccionado <span id="count">{{ selectedSeatsCount }}</span> asiento(s) por un precio de RS.
+        <span id="total">{{ totalPrice }}</span>
+      </p>
+      
+</div>

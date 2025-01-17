@@ -39,10 +39,10 @@ export class AppMenu {
         label: 'Eventos',
         items: [
           { label: 'Listado de Eventos', icon: 'pi pi-fw pi-list', routerLink: ['/admin/eventos'] },
-          { label: 'Conciertos', icon: 'pi pi-fw pi-plus', routerLink: ['/admin/eventos/concierto'] },
-          { label: 'Cine', icon: 'pi pi-fw pi-plus', routerLink: ['/admin/eventos/cine'] },
-          { label: 'Transporte', icon: 'pi pi-fw pi-plus', routerLink: ['/admin/eventos/transporte'] },
-          { label: 'Otros', icon: 'pi pi-fw pi-plus', routerLink: ['/admin/eventos/varios'] }
+          { label: 'Conciertos', icon: 'pi pi-id-card', routerLink: ['/admin/eventos/concierto'] },
+          { label: 'Cine', icon: 'pi pi-discord', routerLink: ['/admin/eventos/cine'] },
+          { label: 'Transporte', icon: 'pi pi-car', routerLink: ['/admin/eventos/transporte'] },
+          { label: 'Otros', icon: 'pi pi-microsoft', routerLink: ['/admin/eventos/varios'] }
         ]
       },
       {
