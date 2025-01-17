@@ -5,13 +5,15 @@ import { AdminRoutingModule } from './admin-routing.module';
 import { PerfilComponent } from './components/perfil/perfil.component';
 import { UsuariosComponent } from './components/usuarios/usuarios.component';
 import { RolesComponent } from './components/roles/roles.component';
+import { LayoutComponent } from './layout/layout.component';
 
 
 @NgModule({
   declarations: [
     PerfilComponent,
     UsuariosComponent,
-    RolesComponent
+    RolesComponent,
+    LayoutComponent
   ],
   imports: [
     CommonModule,

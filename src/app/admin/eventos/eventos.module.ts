@@ -5,6 +5,7 @@ import { ConciertoComponent } from './components/concierto/concierto.component';
 import { TransporteComponent } from './components/transporte/transporte.component';
 import { OtrosComponent } from './components/otros/otros.component';
 import { EventosComponent } from './components/eventos/eventos.component';
+import { EventosRoutingModule } from './eventos-routing.module';
 
 
 
@@ -17,7 +18,8 @@ import { EventosComponent } from './components/eventos/eventos.component';
     EventosComponent
   ],
   imports: [
-    CommonModule
+    CommonModule,
+    EventosRoutingModule
   ]
 })
 export class EventosModule { }
