@@ -1,0 +1,148 @@
+/* Estilos generales */
+.login-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background: linear-gradient(135deg, #007BFF 0%, #00BCD4 100%);
+    padding: 1rem;
+  }
+  
+  .login-card {
+    width: 100%;
+    max-width: 400px;
+    padding: 2rem;
+    border-radius: 8px;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+    background-color: #ffffff;
+  
+    .login-header {
+      text-align: center;
+      margin-bottom: 2rem;
+  
+      .login-logo {
+        height: 60px;
+        margin-bottom: 1rem;
+      }
+  
+      h2 {
+        margin: 0;
+        color: #007BFF;
+      }
+  
+      p {
+        color: #6c757d;
+      }
+    }
+  
+    .p-field {
+      margin-bottom: 1.5rem;
+  
+      .p-input-icon-right {
+        .pi {
+          font-size: 1.2rem;
+          color: #6c757d;
+        }
+  
+        .password-toggle {
+          position: absolute;
+          right: 0;
+          top: 0;
+          margin: 0.5rem;
+          background: none;
+          border: none;
+          color: #6c757d;
+          cursor: pointer;
+  
+          &:hover {
+            color: #007BFF;
+          }
+        }
+      }
+  
+      .error-message {
+        margin-top: 0.5rem;
+        color: #f44336;
+        font-size: 0.85rem;
+      }
+    }
+  
+    .login-button {
+      width: 100%;
+      padding: 0.75rem;
+      margin-top: 1rem;
+    }
+  
+    .password-reset,
+    .register-option {
+      text-align: center;
+      margin-top: 1rem;
+  
+      a {
+        color: #007BFF;
+        text-decoration: none;
+  
+        &:hover {
+          text-decoration: underline;
+        }
+      }
+    }
+  
+    .register-option {
+      margin-top: 0.5rem;
+    }
+  }
+  
+  /* Adaptaciones para dispositivos móviles */
+  @media (max-width: 576px) {
+    .login-card {
+      padding: 1.5rem;
+    }
+  }
+  
+  /* Modo oscuro */
+  body.dark-theme {
+    .login-container {
+      background: linear-gradient(135deg, #343a40 0%, #212529 100%);
+    }
+  
+    .login-card {
+      background-color: #2a2a2a;
+      color: #f8f9fa;
+  
+      .login-header {
+        h2 {
+          color: #66B2FF;
+        }
+  
+        p {
+          color: #adb5bd;
+        }
+      }
+  
+      .p-field {
+        .p-input-icon-right {
+          .pi,
+          .password-toggle {
+            color: #ced4da;
+  
+            &:hover {
+              color: #66B2FF;
+            }
+          }
+        }
+  
+        .error-message {
+          color: #ff6b6b;
+        }
+      }
+  
+      .password-reset,
+      .register-option {
+        a {
+          color: #66B2FF;
+        }
+      }
+    }
+  }
+  

@@ -1,1 +1,54 @@
-<p>login works!</p>
+<div class="login-container">
+    <div class="card login-card p-fluid">
+        <div class="login-header">
+            <!-- Logo y título -->
+            <img src="assets/logo-eventix.png" alt="EvenTix Logo" class="login-logo" />
+            <h2>Bienvenido a EvenTix</h2>
+            <p>Inicia sesión para continuar</p>
+        </div>
+
+        <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
+            <!-- Campo de Email -->
+            <div class="p-field">
+                <span class="p-float-label p-input-icon-right">
+                    <i class="pi pi-envelope"></i>
+                    <input id="email" type="email" pInputText formControlName="email" />
+                    <label for="email">Correo Electrónico</label>
+                </span>
+                <div *ngIf="submitted && f['email'].errors" class="error-message">
+                    <small *ngIf="f['email'].errors['required']">El correo es obligatorio</small>
+                    <small *ngIf="f['email'].errors['email']">Debe ser un correo válido</small>
+                </div>
+            </div>
+
+            <!-- Campo de Contraseña -->
+            <div class="p-field">
+                <span class="p-float-label p-input-icon-right">
+                    <button type="button" pButton pRipple [icon]="hidePassword ? 'pi pi-eye' : 'pi pi-eye-slash'"
+                        class="p-button-text password-toggle" (click)="togglePasswordVisibility()"
+                        tabindex="-1"></button>
+                    <input id="password" [type]="hidePassword ? 'password' : 'text'" pInputText
+                        formControlName="password" />
+                    <label for="password">Contraseña</label>
+                </span>
+                <div *ngIf="submitted && f['password'].errors" class="error-message">
+                    <small *ngIf="f['password'].errors['required']">La contraseña es obligatoria</small>
+                </div>
+            </div>
+
+            <!-- Botón de Iniciar Sesión -->
+            <button type="submit" pButton pRipple label="Iniciar Sesión" icon="pi pi-sign-in"
+                class="login-button"></button>
+
+            <!-- Enlace de Recuperación de Contraseña -->
+            <div class="password-reset">
+                <a routerLink="/auth/forgot-password">¿Olvidaste tu contraseña?</a>
+            </div>
+        </form>
+
+        <!-- Opcional: Registro -->
+        <div class="register-option">
+            <p>¿No tienes una cuenta? <a routerLink="/auth/register">Regístrate aquí</a></p>
+        </div>
+    </div>
+</div>
