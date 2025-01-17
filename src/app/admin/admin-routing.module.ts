@@ -5,12 +5,12 @@ import { MetodosComponent } from './pago/components/metodos/metodos.component';
 import { PagosComponent } from './pago/components/pagos/pagos.component';
 import { UsuariosComponent } from './components/usuarios/usuarios.component';
 import { RolesComponent } from './components/roles/roles.component';
-import { LayoutComponent } from './layout/layout.component';
+import { AppLayout } from './layout/component/app.layout';
 
 const routes: Routes = [
   {
     path: '',
-    component: LayoutComponent,
+    component: AppLayout,
     children: [
       {
         path:'perfil',
