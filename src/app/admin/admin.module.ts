@@ -5,12 +5,14 @@ import { AdminRoutingModule } from './admin-routing.module';
 import { PerfilComponent } from './components/perfil/perfil.component';
 import { UsuariosComponent } from './components/usuarios/usuarios.component';
 import { RolesComponent } from './components/roles/roles.component';
+import { DashboardComponent } from './components/dashboard/dashboard.component';
 
 @NgModule({
   declarations: [
     PerfilComponent,
     UsuariosComponent,
     RolesComponent,
+    DashboardComponent,
   
   ],
   imports: [

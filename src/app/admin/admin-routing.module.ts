@@ -6,6 +6,7 @@ import { PagosComponent } from './pago/components/pagos/pagos.component';
 import { UsuariosComponent } from './components/usuarios/usuarios.component';
 import { RolesComponent } from './components/roles/roles.component';
 import { AppLayout } from './layout/component/app.layout';
+import { DashboardComponent } from './components/dashboard/dashboard.component';
 
 const routes: Routes = [
   {
@@ -31,6 +32,9 @@ const routes: Routes = [
       },{
         path:'roles',
         component:RolesComponent
+      },{
+        path:'',
+        component:DashboardComponent
       }
     ]
   }
