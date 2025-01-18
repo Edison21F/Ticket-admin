@@ -1,0 +1,52 @@
+host {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+      }
+
+      .form-container {
+        width: 100%;
+        max-width: 600px;
+      }
+
+      .card {
+        padding: 1.5rem;
+        border-radius: 8px;
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        background-color: var(--surface-card);
+        color: var(--text-color);
+      }
+
+      h2 {
+        margin-bottom: 1rem;
+        font-size: 1.5rem;
+        color: var(--text-color-secondary);
+      }
+
+      .p-field {
+        margin-bottom: 1rem;
+      }
+
+      .permissions-section {
+        margin-top: 1.5rem;
+      }
+
+      .permiso {
+        display: flex;
+        align-items: center;
+        margin-bottom: 0.5rem;
+      }
+
+      .permiso label {
+        margin-left: 0.5rem;
+      }
+
+      .actions {
+        margin-top: 1.5rem;
+        display: flex;
+        justify-content: flex-end;
+        gap: 0.5rem;
+      }
+    
+  

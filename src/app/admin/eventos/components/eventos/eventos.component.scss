@@ -1,0 +1,59 @@
+.eventos-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.eventos-container h2 {
+  color: #333;
+  margin-bottom: 1rem;
+}
+
+.eventos-container .carousel-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 1rem;
+  background: #f9f9f9;
+  border-radius: 10px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.eventos-container .carousel-item img {
+  width: 100%;
+  max-height: 300px;
+  object-fit: cover;
+  border-radius: 10px;
+  margin-bottom: 0.5rem;
+}
+
+.eventos-container .carousel-item h3 {
+  margin: 0.5rem 0;
+}
+
+.eventos-container .carousel-item p {
+  color: #555;
+}
+
+/* Estilos para modo oscuro */
+body.dark-mode .eventos-container h2 {
+  color: #f0f0f0;
+}
+
+body.dark-mode .eventos-container .carousel-item {
+  background: #333;
+  color: #eee;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.5);
+}
+
+body.dark-mode .eventos-container .carousel-item img {
+  border: 2px solid #444;
+}
+
+body.dark-mode .eventos-container .carousel-item h3 {
+  color: #fff;
+}
+
+body.dark-mode .eventos-container .carousel-item p {
+  color: #ccc;
+}

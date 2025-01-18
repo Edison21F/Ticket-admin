@@ -5,6 +5,7 @@ import { MetodosComponent } from './pago/components/metodos/metodos.component';
 import { PagosComponent } from './pago/components/pagos/pagos.component';
 import { UsuariosComponent } from './components/usuarios/usuarios.component';
 import { RolesComponent } from './components/roles/roles.component';
+import { PermisosComponent } from './components/permisos/permisos.component';
 import { AppLayout } from './layout/component/app.layout';
 import { DashboardComponent } from './components/dashboard/dashboard.component';
 
@@ -32,6 +33,9 @@ const routes: Routes = [
       },{
         path:'roles',
         component:RolesComponent
+      },{
+        path:'permisos',
+        component:PermisosComponent
       },{
         path:'',
         component:DashboardComponent

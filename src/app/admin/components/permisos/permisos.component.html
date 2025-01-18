@@ -1,0 +1,41 @@
+<div class="form-container">
+    <div class="card">
+      <h2>{{ isEditMode ? 'Editar Rol ' + roleName : 'Crear Rol ' + roleName }}</h2>
+
+      <div class="p-field">
+        <label for="nombreRol">Nombre del rol</label>
+        <input id="nombreRol" type="text" pInputText [(ngModel)]="formValues.nombreRol" />
+      </div>
+
+      <div class="p-field">
+        <label for="descripcion">Descripción</label>
+        <input id="descripcion" type="text" pInputText [(ngModel)]="formValues.descripcion" />
+      </div>
+
+      <div class="p-field">
+        <label for="estado">Estado</label>
+        <p-dropdown
+          [options]="estados"
+          [(ngModel)]="formValues.estado"
+          optionLabel="label"
+          placeholder="Seleccione un estado"
+        ></p-dropdown>
+      </div>
+
+      <h3>Permisos asignados</h3>
+      <div class="permissions-section">
+        <div *ngFor="let categoria of permisos">
+          <h4>{{ categoria.titulo }}</h4>
+          <div *ngFor="let permiso of categoria.items" class="permiso">
+            <p-checkbox [(ngModel)]="permiso.asignado" binary="true"></p-checkbox>
+            <label>{{ permiso.nombre }}</label>
+          </div>
+        </div>
+      </div>
+
+      <div class="actions">
+        <button pButton type="button" label="Aceptar" class="p-button-success" (click)="submitForm()"></button>
+        <button pButton type="button" label="Cancelar" class="p-button-danger" (click)="cancelForm()"></button>
+      </div>
+    </div>
+  </div>

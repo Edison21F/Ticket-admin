@@ -1,1 +1,38 @@
-<p>eventos works!</p>
+<div class="eventos-container">
+    <!-- Sección Conciertos -->
+    <h2>Conciertos</h2>
+    <p-carousel [value]="conciertos" [numVisible]="3" [numScroll]="1" [circular]="true" [autoplayInterval]="3000">
+      <ng-template pTemplate="item" let-concierto>
+        <div class="carousel-item">
+          <img [src]="concierto.img" alt="Imagen de concierto" />
+          <h3>{{ concierto.title }}</h3>
+          <p>{{ concierto.description }}</p>
+        </div>
+      </ng-template>
+    </p-carousel>
+  
+    <!-- Sección Cine -->
+    <h2>Cine</h2>
+    <p-carousel [value]="cine" [numVisible]="3" [numScroll]="1" [circular]="true" [autoplayInterval]="3000">
+      <ng-template pTemplate="item" let-pelicula>
+        <div class="carousel-item">
+          <img [src]="pelicula.img" alt="Imagen de cine" />
+          <h3>{{ pelicula.title }}</h3>
+          <p>{{ pelicula.description }}</p>
+        </div>
+      </ng-template>
+    </p-carousel>
+  
+    <!-- Sección Transporte -->
+    <h2>Transporte</h2>
+    <p-carousel [value]="transporte" [numVisible]="3" [numScroll]="1" [circular]="true" [autoplayInterval]="3000">
+      <ng-template pTemplate="item" let-vehiculo>
+        <div class="carousel-item">
+          <img [src]="vehiculo.img" alt="Imagen de transporte" />
+          <h3>{{ vehiculo.title }}</h3>
+          <p>{{ vehiculo.description }}</p>
+        </div>
+      </ng-template>
+    </p-carousel>
+  </div>
+  

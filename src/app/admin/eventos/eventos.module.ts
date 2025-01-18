@@ -8,6 +8,7 @@ import { EventosComponent } from './components/eventos/eventos.component';
 import { EventosRoutingModule } from './eventos-routing.module';
 import { DropdownModule } from 'primeng/dropdown';
 import { FormsModule } from '@angular/forms';
+import { CarouselModule } from 'primeng/carousel';
 
 
 
@@ -18,12 +19,14 @@ import { FormsModule } from '@angular/forms';
     TransporteComponent,
     OtrosComponent,
     EventosComponent
+    
   ],
   imports: [
     CommonModule,
     EventosRoutingModule,
     DropdownModule,
-    FormsModule
+    FormsModule,
+   CarouselModule
   ]
 })
 export class EventosModule { }
