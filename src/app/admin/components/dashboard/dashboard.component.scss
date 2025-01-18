@@ -1,0 +1,365 @@
+.dashboard {
+    padding: 20px;
+    font-family: Arial, sans-serif;
+    color: #333;
+  }
+  
+  /* Contenedor principal */
+  .top-cards {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 1rem;
+  }
+  
+  /* Tarjetas */
+  .stats-card {
+    border-radius: 8px;
+    padding: 0.8rem;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    flex: 1 1 calc(20% - 1rem);
+    min-width: 160px;
+    transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
+    cursor: pointer;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 190px;  /* Asegura que todas las tarjetas tengan la misma altura */
+  
+    &:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    }
+  }
+  
+  /* Contenido de la tarjeta */
+  .card-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 0.5rem;
+    flex-grow: 1;  /* Asegura que el contenido ocupe todo el espacio disponible */
+  }
+  
+  /* Títulos */
+  .card-title {
+    font-size: 1.1rem;
+    font-weight: bold;
+    color: #4a5568;
+  }
+  
+  /* Valores */
+  .card-value {
+    font-size: 1.8rem;
+    font-weight: bold;
+    color: #2d3748;
+  }
+  
+  /* Descripción */
+  .card-description {
+    font-size: 0.8rem;
+    color: #718096;
+  
+    .percentage {
+      font-weight: bold;
+    }
+  }
+  
+  /* Botón */
+  .card-button {
+    margin-top: 0.8rem;
+    width: 100%;
+    font-size: 0.8rem;
+  }
+  
+  /* Contenedor de iconos */
+  .icon-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 2.5rem;
+    height: 2.5rem;
+    border-radius: 50%;
+  }
+  
+  .bg-blue-100 {
+    background-color: #e3f2fd;
+  }
+  
+  .bg-green-100 {
+    background-color: #e8f5e9;
+  }
+  
+  .bg-orange-100 {
+    background-color: #fff3e0;
+  }
+  
+  .bg-purple-100 {
+    background-color: #f3e5f5;
+  }
+  
+  /* Colores de texto */
+  .text-blue-500 {
+    color: #42a5f5;
+  }
+  
+  .text-green-500 {
+    color: #66bb6a;
+  }
+  
+  .text-orange-500 {
+    color: #ffa726;
+  }
+  
+  .text-purple-500 {
+    color: #7e57c2;
+  }
+  
+  .content {
+    display: flex;
+    gap: 20px;
+  }
+  
+  /* Sección Derecha */
+  .large-card {
+    padding: 1rem;
+    border: 1px solid #e0e0e0;
+    border-radius: 8px;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+  }
+  
+  .card-content {
+    display: flex;
+    gap: 1rem;
+    justify-content: space-between;
+  }
+  
+  /* Sub-tarjetas */
+  .sub-card {
+    flex: 1 1 48%; /* Ocupa el 48% del ancho, dejando espacio entre las sub-tarjetas */
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+  }
+  
+  /* Contenido de cada evento */
+  .event-item {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    gap: 1rem;
+  }
+  
+  .event-image-container {
+    position: relative;
+    width: 120px;
+    height: 120px;
+  }
+  
+  .event-image {
+    width: 100%;
+    height: 100%;
+    border-radius: 8px;
+    object-fit: cover;
+  }
+  
+  .event-badge {
+    position: absolute;
+    top: 8px;
+    left: 8px;
+    background-color: #28a745;
+    color: white;
+    padding: 0.2rem 0.5rem;
+    font-size: 0.8rem;
+    border-radius: 4px;
+    text-transform: uppercase;
+    font-weight: bold;
+  }
+  
+  .event-badge.instock {
+    background-color: #28a745;
+  }
+  
+  .event-content {
+    flex: 1;
+  }
+  
+  .event-category {
+    font-size: 0.9rem;
+    color: #6c757d;
+    margin-bottom: 0.5rem;
+  }
+  
+  .event-title {
+    font-size: 1.2rem;
+    font-weight: bold;
+    color: #343a40;
+    margin-bottom: 0.5rem;
+  }
+  
+  .event-rating {
+    display: flex;
+    align-items: center;
+    gap: 0.3rem;
+    font-size: 1rem;
+    color: #ffcc00;
+  }
+  
+  .event-actions {
+    text-align: right;
+  }
+  
+  .event-price {
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: #343a40;
+  }
+  
+  /* Media Queries para hacerlo responsive */
+  
+  /* Pantallas pequeñas */
+  @media (max-width: 768px) {
+    .card-content {
+      flex-direction: column; /* Apilar las sub-tarjetas en pantallas pequeñas */
+    }
+  
+    .sub-card {
+      flex: 1 1 100%; /* Cada sub-tarjeta ocupa el 100% del ancho en pantallas pequeñas */
+    }
+  
+    .event-image-container {
+      width: 100%; /* Las imágenes ocupan todo el ancho */
+      height: 200px; /* Ajustamos la altura */
+    }
+  
+    .event-price {
+      font-size: 1.3rem; /* Reducir tamaño del precio en pantallas pequeñas */
+    }
+  
+    .event-title {
+      font-size: 1.1rem; /* Reducir tamaño del título */
+    }
+  
+    .event-category {
+      font-size: 0.9rem; /* Reducir tamaño de la categoría */
+    }
+  }
+  
+  /* Pantallas medianas */
+  @media (max-width: 1024px) {
+    .sub-card {
+      flex: 1 1 48%; /* Dos sub-tarjetas por fila en pantallas medianas */
+    }
+  
+    .event-image-container {
+      width: 150px; /* Ajustamos el tamaño de las imágenes */
+      height: 150px;
+    }
+  
+    .event-price {
+      font-size: 1.4rem;
+    }
+  
+    .event-title {
+      font-size: 1.2rem;
+    }
+  }
+  /* Tarjetas en la parte inferior */
+  .bottom-cards {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr); /* Dos columnas iguales */
+    gap: 16px; /* Espacio entre las tarjetas */
+    align-items: start; /* Alinear las tarjetas al principio */
+  }
+  
+  .card {
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+    display: flex; /* Flexbox para centrar contenido */
+    flex-direction: column; /* Apilar el contenido verticalmente */
+    align-items: center; /* Centrar horizontalmente */
+    justify-content: center; /* Centrar verticalmente */
+    padding: 16px; /* Espaciado interno */
+  }
+  
+  .manage-card img {
+    max-width: 100%;
+    height: 300px;
+    object-fit: cover;
+    margin-bottom: 16px; /* Espacio entre la imagen y el texto */
+  }
+  
+  .card h4 {
+    text-align: center; /* Centrar el texto */
+    margin-bottom: 16px; /* Espacio debajo del título */
+  }
+  
+  .card-actions {
+    margin-top: 16px; /* Espaciado superior entre el botón y el resto del contenido */
+  }
+  
+  /* Media Queries para hacerlo responsive */
+  
+  /* Pantallas pequeñas */
+  @media (max-width: 768px) {
+    .top-cards {
+      flex-direction: column; /* Cambiar la dirección a columna para pantallas pequeñas */
+      gap: 2rem;
+    }
+  
+    .stats-card {
+      flex: 1 1 100%; /* Cada tarjeta ocupa todo el ancho en pantallas pequeñas */
+      height: auto;
+    }
+  
+    .bottom-cards {
+      grid-template-columns: 1fr; /* Una columna en pantallas pequeñas */
+    }
+  
+    .content {
+      flex-direction: column;
+    }
+  
+    .large-card {
+      flex-direction: column;
+    }
+  
+    .sub-card {
+      flex: 1 1 100%;
+    }
+  
+    .event-item {
+      flex-direction: column; /* Apilar los elementos en pantallas pequeñas */
+    }
+  
+    .event-image-container {
+      width: 100%;
+      height: 200px;
+    }
+  
+    .event-content {
+      margin-top: 1rem;
+    }
+  
+    /* Ajustar imagenes */
+    .manage-card img {
+      height: auto;
+      max-height: 200px;
+      object-fit: cover;
+    }
+  }
+  
+  /* Pantallas medianas */
+  @media (max-width: 1024px) {
+    .stats-card {
+      flex: 1 1 calc(45% - 1rem); /* Dos tarjetas por fila en pantallas medianas */
+    }
+  
+    .manage-card img {
+      height: auto;
+      max-height: 250px;
+    }
+  }
+  

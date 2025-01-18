@@ -10,18 +10,20 @@ import { DashboardComponent } from './components/dashboard/dashboard.component';
 
 //ng library
 import { ButtonModule } from 'primeng/button';
+import { CardModule } from 'primeng/card';
 @NgModule({
   declarations: [
     PerfilComponent,
     UsuariosComponent,
-    RolesComponent,
-    DashboardComponent,
+    RolesComponent
   
   ],
   imports: [
     CommonModule,
     AdminRoutingModule,
-    ButtonModule
+    ButtonModule,
+    CardModule
+
   ]
 })
 export class AdminModule { }
