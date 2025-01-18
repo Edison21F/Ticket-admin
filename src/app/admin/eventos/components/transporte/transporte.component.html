@@ -1,1 +1,79 @@
-<p>transporte works!</p>
+<div class="card">
+    <div class="bus-container">
+    <div class="titulo">
+        <h1>Manejo de Asientos AutoBus</h1>
+    </div>
+        <div class="bus">
+            <div class="driver-seat">
+              <img src="https://w7.pngwing.com/pngs/175/450/png-transparent-car-steering-wheel-driving-steering-wheel-driving-car-transport-thumbnail.png" alt="Conductor">
+            </div>
+            <div class="seat-row" *ngFor="let rowIndex of [].constructor(4); let i = index">
+              <div class="seat-column">
+                <div
+                  class="seat"
+                  [ngClass]="seats[i + 0 * 4].status"
+                  (click)="onSeatClick(seats[i + 0 * 4])"
+                  [@seatAnimation]="seats[i + 0 * 4].status"
+                  [title]="getSeatTooltip(seats[i + 0 * 4])"
+                ></div>
+                <div
+                  class="seat"
+                  [ngClass]="seats[i + 1 * 4].status"
+                  (click)="onSeatClick(seats[i + 1 * 4])"
+                  [@seatAnimation]="seats[i + 1 * 4].status"
+                  [title]="getSeatTooltip(seats[i + 1 * 4])"
+                ></div>
+              </div>
+              <div class="aisle"></div>
+              <div class="seat-column">
+                <div
+                  class="seat"
+                  [ngClass]="seats[i + 2 * 4].status"
+                  (click)="onSeatClick(seats[i + 2 * 4])"
+                  [@seatAnimation]="seats[i + 2 * 4].status"
+                  [title]="getSeatTooltip(seats[i + 2 * 4])"
+                ></div>
+                <div
+                  class="seat"
+                  [ngClass]="seats[i + 3 * 4].status"
+                  (click)="onSeatClick(seats[i + 3 * 4])"
+                  [@seatAnimation]="seats[i + 3 * 4].status"
+                  [title]="getSeatTooltip(seats[i + 3 * 4])"
+                ></div>
+              </div>
+            </div>
+          </div>
+        <p-card *ngIf="selectedSeat" header="Detalles del Asiento" class="details-card">
+          <div class="p-fluid">
+            <div class="p-field">
+              <label><strong>ID:</strong></label>
+              <span>{{ selectedSeat.id }}</span>
+            </div>
+            <div class="p-field">
+              <label><strong>Estado:</strong></label>
+              <span>{{ selectedSeat.status === 'available' ? 'Disponible' : 'Ocupado' }}</span>
+            </div>
+            <ng-container *ngIf="selectedSeat.status === 'occupied'">
+              <div class="p-field">
+                <label><strong>Nombre del Pasajero:</strong></label>
+                <span>{{ selectedSeat.passenger }}</span>
+              </div>
+              <div class="p-field">
+                <label><strong>Fecha de Compra:</strong></label>
+                <span>{{ selectedSeat.purchaseDate | date:'dd/MM/yyyy HH:mm' }}</span>
+              </div>
+            </ng-container>
+            <div class="p-field" *ngIf="selectedSeat.status === 'available'">
+              <label for="passengerName"><strong>Nombre del Pasajero:</strong></label>
+              <input id="passengerName" type="text" pInputText [(ngModel)]="passengerName" placeholder="Ingrese el nombre">
+            </div>
+          </div>
+          <div class="button-group">
+            <button pButton label="Ocupar Asiento" icon="pi pi-check" (click)="occupySeat()" *ngIf="selectedSeat.status === 'available'"></button>
+            <button pButton label="Liberar Asiento" icon="pi pi-times" class="p-button-danger" (click)="releaseSeat()" *ngIf="selectedSeat.status === 'occupied'"></button>
+            <button pButton label="Cerrar" icon="pi pi-times" class="p-button-secondary" (click)="resetSelection()"></button>
+          </div>
+        </p-card>
+      </div>
+      
+</div>

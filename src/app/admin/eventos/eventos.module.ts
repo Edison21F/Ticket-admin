@@ -8,8 +8,11 @@ import { EventosComponent } from './components/eventos/eventos.component';
 import { EventosRoutingModule } from './eventos-routing.module';
 import { DropdownModule } from 'primeng/dropdown';
 import { FormsModule } from '@angular/forms';
-
-
+import { ButtonModule } from 'primeng/button';
+import { TooltipModule } from 'primeng/tooltip';
+import { InputTextModule } from 'primeng/inputtext';
+import { DialogModule } from 'primeng/dialog';
+import { CardModule } from 'primeng/card';
 
 @NgModule({
   declarations: [
@@ -23,7 +26,13 @@ import { FormsModule } from '@angular/forms';
     CommonModule,
     EventosRoutingModule,
     DropdownModule,
-    FormsModule
+    FormsModule,
+    ButtonModule,
+    TooltipModule,
+    DialogModule,
+    InputTextModule,
+    CardModule,
+    
   ]
 })
 export class EventosModule { }

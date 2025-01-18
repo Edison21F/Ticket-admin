@@ -1,49 +1,69 @@
 <div class="card">
-    <div class="movie-container">
-        <label for="movie">Seleccione una película:</label>
-        <p-dropdown
-          id="movie"
-          [options]="movies"
-          [(ngModel)]="selectedMovie"
-          optionLabel="name"
-          placeholder="Seleccione una película"
-          (onChange)="onMovieChange($event)"
-        ></p-dropdown>
+  <div class="movie-container">
+    <label for="movie">Seleccione una película:</label>
+    <p-dropdown
+      id="movie"
+      [options]="movies"
+      [(ngModel)]="selectedMovie"
+      optionLabel="name"
+      placeholder="Seleccione una película"
+      (onChange)="onMovieChange($event)"
+    ></p-dropdown>
+  </div>
+
+  <ul class="showcase">
+    <li>
+      <div class="seat available"></div>
+      <small>Disponible</small>
+    </li>
+    
+    <li>
+      <div class="seat sold"></div>
+      <small>Vendido</small>
+    </li>
+  </ul>
+
+  <div class="container">
+    <div class="screen">Pantalla</div>
+
+    <div *ngFor="let row of seats">
+      <div class="row">
+        <div
+          *ngFor="let seat of row"
+          class="seat"
+          [ngClass]="seat.status"
+          (click)="onSeatClick(seat)"
+        ></div>
       </div>
-      
-      <ul class="showcase">
-        <li>
-          <div class="seat"></div>
-          <small>Disponible</small>
-        </li>
-        <li>
-          <div class="seat selected"></div>
-          <small>Seleccionado</small>
-        </li>
-        <li>
-          <div class="seat sold"></div>
-          <small>Vendido</small>
-        </li>
-      </ul>
-      
-      <div class="container">
-        <div class="screen">Pantalla</div>
-      
-        <div *ngFor="let row of seats">
-          <div class="row">
-            <div
-              *ngFor="let seat of row"
-              class="seat"
-              [ngClass]="seat.status"
-              (click)="toggleSeat(seat)"
-            ></div>
-          </div>
-        </div>
-      </div>
-      
-      <p class="text">
-        Has seleccionado <span id="count">{{ selectedSeatsCount }}</span> asiento(s) por un precio de RS.
-        <span id="total">{{ totalPrice }}</span>
-      </p>
-      
+    </div>
+  </div>
+
+ 
+
+  <div class="admin-controls">
+    <h3>Controles de Administrador</h3>
+    <button
+      pButton
+      label="Editar Asiento"
+      icon="pi pi-pencil"
+      class="p-button-warning"
+      (click)="editSelectedSeat()"
+      [disabled]="!selectedSeat"
+    ></button>
+    <button
+      pButton
+      label="Eliminar Asiento"
+      icon="pi pi-trash"
+      class="p-button-danger"
+      (click)="deleteSelectedSeat()"
+      [disabled]="!selectedSeat"
+    ></button>
+  </div>
+
+  <div class="seat-info" *ngIf="seatDetails">
+    <h4>Detalles del Asiento</h4>
+    <p><strong>Posición:</strong> {{ seatDetails.id }}</p>
+    <p><strong>Estado:</strong> {{ seatDetails.status }}</p>
+    <p><strong>Comprador:</strong> {{ seatDetails.buyer || 'N/A' }}</p>
+  </div>
 </div>

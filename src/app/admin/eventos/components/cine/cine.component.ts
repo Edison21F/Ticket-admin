@@ -3,43 +3,39 @@ import { Component, OnInit } from '@angular/core';
 interface Movie {
   name: string;
   price: number;
-  soldSeats: string[];
+  soldSeats: { id: string; buyer: string }[];
 }
 
 interface Seat {
   id: string;
   status: string;
+  buyer?: string;
 }
 
 @Component({
   selector: 'app-cine',
   standalone: false,
   templateUrl: './cine.component.html',
-  styleUrls: ['./cine.component.scss']
+  styleUrls: ['./cine.component.scss'],
 })
 export class CineComponent implements OnInit {
-
-  movies = [
+  movies: Movie[] = [
     {
       name: 'Godzilla vs Kong',
       price: 220,
-      soldSeats: ['2-4', '2-5', '3-7', '3-8']
+      soldSeats: [
+        { id: '2-4', buyer: 'Juan Pérez' },
+        { id: '3-7', buyer: 'María García' },
+      ],
     },
     {
       name: 'Radhe',
       price: 320,
-      soldSeats: ['1-4', '2-5', '4-6', '5-3']
+      soldSeats: [
+        { id: '1-4', buyer: 'Carlos Rodríguez' },
+        { id: '4-6', buyer: 'Ana Torres' },
+      ],
     },
-    {
-      name: 'RRR',
-      price: 250,
-      soldSeats: ['2-3', '3-5', '4-4', '6-7']
-    },
-    {
-      name: 'F9',
-      price: 260,
-      soldSeats: ['1-2', '3-4', '5-5', '6-6']
-    }
   ];
 
   selectedMovie = this.movies[0];
@@ -47,8 +43,8 @@ export class CineComponent implements OnInit {
   seats: Seat[][] = [];
   selectedSeatsCount = 0;
   totalPrice = 0;
-
-  constructor() { }
+  seatDetails: Seat | null = null;
+  selectedSeat: Seat | null = null;
 
   ngOnInit(): void {
     this.generateSeats();
@@ -56,45 +52,63 @@ export class CineComponent implements OnInit {
 
   generateSeats(): void {
     const soldSeats = this.selectedMovie.soldSeats;
-    this.seats = [];
-    for (let i = 1; i <= 6; i++) {
-      const row: Seat[] = [];
-      for (let j = 1; j <= 8; j++) {
-        const seatId = `${i}-${j}`;
-        let status = 'available';
-        if (soldSeats.includes(seatId)) {
-          status = 'sold';
-        }
-        row.push({
+    this.seats = Array.from({ length: 6 }, (_, rowIndex) =>
+      Array.from({ length: 8 }, (_, colIndex) => {
+        const seatId = `${rowIndex + 1}-${colIndex + 1}`;
+        const soldSeat = soldSeats.find((s) => s.id === seatId);
+        return {
           id: seatId,
-          status: status
-        });
-      }
-      this.seats.push(row);
-    }
-    this.selectedSeatsCount = 0;
-    this.totalPrice = 0;
+          status: soldSeat ? 'sold' : 'available',
+          buyer: soldSeat?.buyer,
+        };
+      })
+    );
   }
 
   onMovieChange(event: { value: Movie }): void {
-    this.ticketPrice = event.value.price;
     this.selectedMovie = event.value;
+    this.ticketPrice = event.value.price;
     this.generateSeats();
   }
 
-  toggleSeat(seat: Seat): void {
-    if (seat.status === 'sold') {
-      return;
-    }
-    if (seat.status === 'selected') {
-      seat.status = 'available';
-      this.selectedSeatsCount--;
-      this.totalPrice -= this.ticketPrice;
-    } else {
-      seat.status = 'selected';
-      this.selectedSeatsCount++;
-      this.totalPrice += this.ticketPrice;
+  onSeatClick(seat: Seat): void {
+    this.seatDetails = seat;
+    this.selectedSeat = seat;
+  }
+
+  editSelectedSeat(): void {
+    if (this.selectedSeat) {
+      this.selectedSeat.status = 'available';
+      this.selectedSeat.buyer = undefined;
+      this.updateSoldSeats();
     }
   }
 
+  deleteSelectedSeat(): void {
+    if (this.selectedSeat) {
+      // Cambiar estado a disponible
+      this.selectedSeat.status = 'available';
+      this.selectedSeat.buyer = undefined;
+
+      // Remover de la lista de asientos vendidos
+      this.selectedMovie.soldSeats = this.selectedMovie.soldSeats.filter(
+        (seat) => seat.id !== this.selectedSeat?.id
+      );
+
+      // Actualizar detalles y generar nueva matriz de asientos
+      this.seatDetails = null;
+      this.selectedSeat = null;
+      this.generateSeats();
+    }
+  }
+
+  private updateSoldSeats(): void {
+    this.selectedMovie.soldSeats = this.seats
+      .flat()
+      .filter((seat) => seat.status === 'sold')
+      .map((seat) => ({
+        id: seat.id,
+        buyer: seat.buyer || '',
+      }));
+  }
 }

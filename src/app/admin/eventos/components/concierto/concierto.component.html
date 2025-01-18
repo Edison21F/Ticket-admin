@@ -1,1 +1,31 @@
-<p>concierto works!</p>
+<div class="stadium-container">
+    <div class="screen">Escenario</div>
+  
+    <div class="zones">
+      <div
+        class="zone"
+        *ngFor="let zone of zones"
+        [style.backgroundColor]="zone.color"
+      >
+        <h3>{{ zone.name }}</h3>
+        <div class="seats">
+          <div
+            class="seat"
+            *ngFor="let seat of seats[zone.name]"
+            [ngClass]="seat.status"
+            (click)="onSeatClick(seat)"
+          ></div>
+        </div>
+      </div>
+    </div>
+  
+    <div class="details" *ngIf="selectedSeat">
+      <h3>Detalles del Asiento</h3>
+      <p>ID: {{ selectedSeat.id }}</p>
+      <p>Zona: {{ selectedSeat.zone }}</p>
+      <p>Estado: {{ selectedSeat.status }}</p>
+      <button (click)="deleteSelectedSeat()">Eliminar</button>
+      <button (click)="editSelectedSeat()">Editar</button>
+    </div>
+  </div>
+  
