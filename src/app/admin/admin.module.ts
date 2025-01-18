@@ -25,15 +25,13 @@ import { CardModule } from 'primeng/card';
   declarations: [
     PerfilComponent,
     UsuariosComponent,
-
     RolesComponent,
-    DashboardComponent,
     PermisosComponent,
-
     RolesComponent
   
   ],
   imports: [
+    DashboardComponent,
     CommonModule,
     AdminRoutingModule,
     ButtonModule,
