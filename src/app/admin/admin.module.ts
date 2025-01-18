@@ -19,13 +19,19 @@ import { ConfirmDialogModule } from 'primeng/confirmdialog'; // Importar el mód
 import { ToastModule } from 'primeng/toast'; // Importar el módulo de p-toast
 import { CheckboxModule } from 'primeng/checkbox'; // Importa CheckboxModule
 
+
+import { CardModule } from 'primeng/card';
 @NgModule({
   declarations: [
     PerfilComponent,
     UsuariosComponent,
+
     RolesComponent,
     DashboardComponent,
-    PermisosComponent
+    PermisosComponent,
+
+    RolesComponent
+  
   ],
   imports: [
     CommonModule,
@@ -39,7 +45,9 @@ import { CheckboxModule } from 'primeng/checkbox'; // Importa CheckboxModule
     FormsModule,
     ConfirmDialogModule,
     ToastModule,
-    CheckboxModule     // Agregar CheckboxModule
+    CheckboxModule,   // Agregar CheckboxModule// 
+        CardModule
+
   ]
 })
 export class AdminModule { }

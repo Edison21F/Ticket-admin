@@ -8,9 +8,16 @@ import { EventosComponent } from './components/eventos/eventos.component';
 import { EventosRoutingModule } from './eventos-routing.module';
 import { DropdownModule } from 'primeng/dropdown';
 import { FormsModule } from '@angular/forms';
+
 import { CarouselModule } from 'primeng/carousel';
 
 
+
+import { ButtonModule } from 'primeng/button';
+import { TooltipModule } from 'primeng/tooltip';
+import { InputTextModule } from 'primeng/inputtext';
+import { DialogModule } from 'primeng/dialog';
+import { CardModule } from 'primeng/card';
 
 @NgModule({
   declarations: [
@@ -26,7 +33,13 @@ import { CarouselModule } from 'primeng/carousel';
     EventosRoutingModule,
     DropdownModule,
     FormsModule,
-   CarouselModule
+   CarouselModule,
+    ButtonModule,
+    TooltipModule,
+    DialogModule,
+    InputTextModule,
+    CardModule,
+    
   ]
 })
 export class EventosModule { }

@@ -1,24 +1,33 @@
-/* Estilos generales */
+
 @import url("https://fonts.googleapis.com/css?family=Lato&display=swap");
 
-* {
-  box-sizing: border-box;
+.admin-controls {
+  margin: 20px 0;
+  display: flex;
+  justify-content: center;
+  gap: 10px;
 }
+
+.seat-info {
+  margin-top: 20px;
+  text-align: center;
+
+  h4 {
+    margin-bottom: 10px;
+  }
+}
+
 
 :host {
   display: block;
   font-family: "Lato", sans-serif;
 }
 
-body {
-  background-color: #242333;
-  color: #fff;
-  margin: 0;
-}
 
 .movie-container {
   margin: 20px 0;
   text-align: center;
+
   label {
     font-size: 1.2rem;
     margin-right: 10px;
@@ -34,12 +43,12 @@ body {
 }
 
 .screen {
-  background-color: #fff;
+  background-color: #bcbcbc;
   height: 70px;
   width: 80%;
   margin: 15px 0;
   transform: rotateX(-45deg);
-  box-shadow: 0 3px 10px rgba(255, 255, 255, 0.7);
+  box-shadow: 0 3px 10px rgba(0, 0, 0, 0.7);
   text-align: center;
   font-weight: bold;
   line-height: 70px;
@@ -51,23 +60,28 @@ body {
 
 .seat {
   background-color: #444451;
-  height: 26px;
-  width: 32px;
-  margin: 3px;
+  height: 30px;
+  width: 35px;
+  margin: 5px;
   border-top-left-radius: 10px;
   border-top-right-radius: 10px;
+
+  &.available {
+    background-color: #90ee90;
+    cursor: pointer;
+  }
+
+  &.selected {
+    background-color: #6c757d;
+  }
+
+  &.sold {
+    background-color: #ff6161;
+    cursor: pointer;
+  }
 }
 
-.seat.selected {
-  background-color: green;
-}
-
-.seat.sold {
-  background-color: #fff;
-}
-
-.seat:not(.sold):hover {
-  cursor: pointer;
+.seat:hover {
   transform: scale(1.1);
 }
 
@@ -75,29 +89,34 @@ body {
   background: rgba(0, 0, 0, 0.1);
   padding: 10px 20px;
   border-radius: 5px;
-  color: #777;
+  color: #333;
   list-style-type: none;
   display: flex;
   justify-content: center;
   margin-bottom: 20px;
+
+  li {
+    display: flex;
+    align-items: center;
+    margin: 0 15px;
+
+    small {
+      margin-left: 5px;
+    }
+  }
 }
 
-.showcase li {
-  display: flex;
-  align-items: center;
-  margin: 0 15px;
-}
-
-.showcase li small {
-  margin-left: 5px;
-}
-
-p.text {
+.text {
   font-size: 1.2rem;
   text-align: center;
+
+  span {
+    color: #28a745;
+  }
 }
 
-p.text span {
-  color: rgb(158, 248, 158);
+.purchase-button {
+  display: block;
+  margin: 0 auto;
+  margin-top: 20px;
 }
-
